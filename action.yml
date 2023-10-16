@@ -1,0 +1,31 @@
+name: Gandalf
+description: 'You shall only pass if Gandalf lets you'
+
+inputs:
+  respond:
+    description: 'Let Gandalf respond to pass or block the gateway'
+    required: false
+    default: 'false'
+  startHours:
+    description: 'Starting Hours'
+    required: true
+  endHours:
+    description: 'Ending Hours'
+    required: true
+  startDay:
+    description: 'Starting Day'
+    required: true
+  endDay:
+    description: 'Ending Day'
+    required: true
+
+outputs:
+  you-shall-pass:
+    description: "You shall or shall not pass"
+    value: ${{ steps.gandalf.outputs.shall-pass }}
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo "you-shall-pass=$(RESPOND=${{ inputs.respond }} START_HOURS=${{ inputs.startHours }} END_HOURS=${{ inputs.endHours }} START_DAY=${{ inputs.startDay }} END_DAY=${{ inputs.endDay }} ./gandalf.sh)" >> $GITHUB_OUTPUT
+      shell: bash

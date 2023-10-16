@@ -1,0 +1,26 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Gandalf
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - id: gandalf
+        with:
+          startHours: 8
+          endHours: 17
+          startDay: 1
+          endDay: 5
+        #   respond: true
+        uses: ./
+
+      - run: |
+          if [[ ${{ steps.gandalf.outputs.you-shall-pass }} == true ]]; then
+            echo "You shall pass!"
+          else
+            echo "You shall not pass!"
+          fi
+        shell: bash
