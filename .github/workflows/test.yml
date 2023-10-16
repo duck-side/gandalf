@@ -18,7 +18,7 @@ jobs:
           startDay: 1
           endDay: 5
           # respond: false
-        uses: actions/gandalf@v1
+        uses: actions/you-shall-pass@v1
 
       - name: Gandalf's Answer
         run: |

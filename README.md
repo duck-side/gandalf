@@ -40,7 +40,7 @@ jobs:
           endHours: 17
           startDay: 1
           endDay: 5
-        uses: actions/gandalf@v1
+        uses: actions/you-shall-pass@v1
 
   deploy:
     if: needs.gandalf.outputs.you-shall-pass == 'true'
