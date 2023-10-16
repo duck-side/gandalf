@@ -27,7 +27,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: 🧙🏻‍♂️ "You shall or shall not pass"
+    - name: "You shall or shall not pass"
       id: gandalf
       run: echo "you-shall-pass=$(RESPOND=${{ inputs.respond }} START_HOURS=${{ inputs.startHours }} END_HOURS=${{ inputs.endHours }} START_DAY=${{ inputs.startDay }} END_DAY=${{ inputs.endDay }} ./gandalf.sh)" >> $GITHUB_OUTPUT
       shell: bash

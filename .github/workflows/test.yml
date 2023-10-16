@@ -18,7 +18,7 @@ jobs:
           startDay: 1
           endDay: 5
           # respond: false
-        uses: ./
+        uses: actions/gandalf@v1
 
       - name: Gandalf's Answer
         run: |
@@ -27,12 +27,3 @@ jobs:
           else
             echo "You shall not pass!"
           fi
-
-  deploy:
-    if: needs.gandalf.outputs.you-shall-pass == 'true'
-    runs-on: ubuntu-latest
-    name: Deployment
-    needs: gandalf
-    steps:
-      - name: Deployment
-        run: echo "Runs only if Gandalf allows it"
