@@ -1,6 +1,10 @@
 name: "You Shall Pass"
 description: "You shall only pass if Gandalf lets you"
 
+branding:
+  icon: check-circle
+  color: green
+
 inputs:
   respond:
     description: "Convince Gandalf to respond with passing or blocking the gateway"
