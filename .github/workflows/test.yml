@@ -8,7 +8,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - id: gandalf
+      - name: Ask Gandalf
+        id: gandalf
         with:
           startHours: 8
           endHours: 17
@@ -17,8 +18,9 @@ jobs:
         #   respond: true
         uses: ./
 
-      - run: |
-          if [[ ${{ steps.gandalf.outputs.you-shall-pass }} == true ]]; then
+      - name: Gandalf's Answer
+        run: |
+          if [[ echo "${{ steps.gandalf.outputs.you-shall-pass }}" == true ]]; then
             echo "You shall pass!"
           else
             echo "You shall not pass!"
