@@ -1,9 +1,11 @@
 on: [push]
 
 jobs:
-  test:
+  gandalf:
     runs-on: ubuntu-latest
     name: Gandalf
+    outputs:
+      you-shall-pass: ${{ steps.gandalf.outputs.you-shall-pass }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -15,7 +17,7 @@ jobs:
           endHours: 17
           startDay: 1
           endDay: 5
-        #   respond: true
+          # respond: false
         uses: ./
 
       - name: Gandalf's Answer
@@ -25,4 +27,12 @@ jobs:
           else
             echo "You shall not pass!"
           fi
-        shell: bash
+
+  deploy:
+    if: needs.gandalf.outputs.you-shall-pass == 'true'
+    runs-on: ubuntu-latest
+    name: Deployment
+    needs: gandalf
+    steps:
+      - name: Deployment
+        run: echo "Runs only if Gandalf allows it"
