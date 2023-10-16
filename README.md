@@ -40,7 +40,7 @@ jobs:
           endHours: 17
           startDay: 1
           endDay: 5
-        uses: duck-side/gandalf@v1.0.0
+        uses: duck-side/gandalf
 
   deploy:
     if: needs.gandalf.outputs.you-shall-pass == 'true'

@@ -18,7 +18,7 @@ jobs:
           startDay: 1
           endDay: 5
           # respond: false
-        uses: duck-side/gandalf@v1.0.0
+        uses: duck-side/gandalf
 
       - name: Gandalf's Answer
         run: |
